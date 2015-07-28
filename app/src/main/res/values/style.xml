@@ -33,5 +33,10 @@
         <item name="android:foreground">@color/white</item>-->
     </style>
 
+    <style name="RobotoRegular">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
 
 </resources>

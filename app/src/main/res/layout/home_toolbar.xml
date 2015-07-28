@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+<android.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     android:elevation="4dp"
     android:layout_height="?android:attr/actionBarSize"
     android:layout_width="match_parent"
@@ -16,4 +16,4 @@
     Values in an attribute set can reference values from the View’s theme.
     TL;DR: Themes are global, styles are local.
     -->
-</Toolbar>
+</android.widget.Toolbar>
