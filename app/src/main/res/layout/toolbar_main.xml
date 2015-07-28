@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:elevation="4dp"
+    android:layout_height="?android:attr/actionBarSize"
+    android:layout_width="match_parent"
+    android:background="?android:attr/colorPrimary"
+    android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
+    android:popupTheme="@style/PopupTheme" android:title="@string/app_name" >
+
+    <!--
+    https://chris.banes.me/2014/11/12/theme-vs-style/
+    Theme vs Style
+    So what exactly is the difference? Well they are both declared in exactly the same way (which you already know), the difference comes in how they’re used.
+    Themes are meant to be the global source of styling for your app. The new functionality doesn’t change that, it just allows you to tweak it per view.
+    Styles are meant to be applied at a view level. Internally, when you set style on a View, the LayoutInflater will read the style and apply it to the AttributeSet before any explicit attributes (this allows you to override style values on a view).
+    Values in an attribute set can reference values from the View’s theme.
+    TL;DR: Themes are global, styles are local.
+    -->
+</Toolbar>
