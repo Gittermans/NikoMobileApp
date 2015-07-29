@@ -1,40 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="8dp"
-    android:paddingBottom="8dp"
-    android:gravity="center_vertical"
     android:layout_height="@dimen/height_list_item_2l"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:gravity="center_vertical"
+    android:paddingBottom="8dp"
+    android:paddingTop="8dp"> <!-- throws (EGL_BAD_ATTRIBUTE) android:paddingLeft="@dimen/activity_horizontal_margin" -->
 
-    <ImageView
+    <com.niko.hannes.nikomobileapp.widget.AvatarView
+        android:id="@+id/home.menu.item.avatar"
+        android:layout_width="48dp"
+        android:layout_height="48"
+        android:layout_marginLeft="@dimen/spacing_double" />
+
+    <TextView
         android:id="@+id/home.menu.item.title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Android version name"
         android:layout_marginLeft="@dimen/spacing_double"
-        android:textColor="@color/primary_text_default_material_light"
-        android:textSize="@dimen/abc_text_size_subhead_material" />
+        android:fontFamily="@string/fontFamily_roboto_regular"
+        android:text="Android version name" />
 
-        <TextView
-            android:id="@+id/home.menu.item.title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Android version name"
-            android:layout_marginLeft="@dimen/spacing_double"
-            android:fontFamily="@string/fontFamily_roboto_regular"
-            android:textSize="@dimen/abc_text_size_subhead_material" />
-
-        <TextView
-            android:id="@+id/home.menu.item.description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/spacing_double"
-            android:text="Test"
-            android:paddingTop="3dp"
-            android:textColor="@color/secondary_text_default_material_light"
-            android:textSize="@dimen/abc_text_size_caption_material" />
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/home.menu.item.description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/spacing_double"
+        android:paddingTop="3dp"
+        android:text="Test" />
+</RelativeLayout>

@@ -1,13 +1,14 @@
-package com.niko.hannes.nikomobileapp.home;
+package com.niko.hannes.nikomobileapp.ui.home;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.niko.hannes.nikomobileapp.R;
+import com.niko.hannes.nikomobileapp.model.Avatar;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,19 +16,22 @@ import java.util.List;
  */
 public class MenuListAdapter extends RecyclerView.Adapter<MenuItemVH> {
 
-    List<MenuItemVM> vms;
+    List<MenuItemVM> mVms;
+    private Context mContext;
 
-    public MenuListAdapter(List<MenuItemVM> vms) {
+    public MenuListAdapter(Context context, List<MenuItemVM> vms) {
 
         if(vms == null) throw new IllegalArgumentException("vms can not be null");
+        if(context == null) throw new IllegalArgumentException("context can not be null");
 
-        this.vms = vms;
+        mContext = context;
+        mVms = vms;
     }
 
     @Override
     public MenuItemVH onCreateViewHolder(ViewGroup viewGroup, int i) {
 
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.home_menu_item, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_1i2l, viewGroup, false);
 
         return new MenuItemVH(view);
     }
@@ -35,15 +39,17 @@ public class MenuListAdapter extends RecyclerView.Adapter<MenuItemVH> {
     @Override
     public void onBindViewHolder(MenuItemVH menuItemVH, int i) {
 
-        MenuItemVM vmToBind =  vms.get(i);
+        MenuItemVM vmToBind =  mVms.get(i);
+
+        //vmToBind.
 
         menuItemVH.title.setText(vmToBind.title);
         menuItemVH.description.setText(vmToBind.description);
-
+        menuItemVH.avatar.setImageDrawable(mContext.getDrawable(R.drawable.avatar_1));
     }
 
     @Override
     public int getItemCount() {
-        return vms.size();
+        return mVms.size();
     }
 }

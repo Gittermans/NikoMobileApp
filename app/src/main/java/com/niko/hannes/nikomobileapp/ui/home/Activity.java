@@ -1,4 +1,4 @@
-package com.niko.hannes.nikomobileapp.home;
+package com.niko.hannes.nikomobileapp.ui.home;
 
 import android.net.Uri;
 import android.os.Bundle;

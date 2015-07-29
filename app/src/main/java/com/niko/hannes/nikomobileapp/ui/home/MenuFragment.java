@@ -1,4 +1,4 @@
-package com.niko.hannes.nikomobileapp.home;
+package com.niko.hannes.nikomobileapp.ui.home;
 
 import android.app.Activity;
 import android.net.Uri;
@@ -9,9 +9,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 
 import com.niko.hannes.nikomobileapp.R;
+import com.niko.hannes.nikomobileapp.model.Avatar;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,7 +27,7 @@ import com.niko.hannes.nikomobileapp.R;
 public class MenuFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
-    private RecyclerView mRecyclerView;
+    private RecyclerView mlistView;
 
     public MenuFragment() {
 
@@ -49,12 +52,19 @@ public class MenuFragment extends Fragment {
 
     private void bindListView(View view) {
 
-        ArrayAdapter<MenuItemVM> adapter = new ArrayAdapter<MenuItemVM>();
+        List<MenuItemVM> menuitems = new ArrayList<MenuItemVM>();
+        menuitems.add(new MenuItemVM("Hannes", "Senior software developer", Avatar.ONE));
+        menuitems.add(new MenuItemVM("Kenneth", "Senior software developer", Avatar.TWO));
+        menuitems.add(new MenuItemVM("Bjorn", "Senior software developer", Avatar.FOUR));
+        menuitems.add(new MenuItemVM("Peter", "Senior software developer", Avatar.FIVE));
+        menuitems.add(new MenuItemVM("Tony", "Software tester", Avatar.ELEVEN));
+        menuitems.add(new MenuItemVM("Erik", "Software manager", Avatar.SIXTEEN));
+        MenuListAdapter adapter = new MenuListAdapter(getActivity(), menuitems);
 
 
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.list_main);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecyclerView.setAdapter();
+        mlistView = (RecyclerView) view.findViewById(R.id.home_menu_list);
+        mlistView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mlistView.setAdapter(adapter);
     }
 
 
