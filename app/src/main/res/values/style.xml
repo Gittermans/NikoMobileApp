@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Material.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Main theme colors -->
         <!--   your app branding color for the app bar -->
         <item name="android:colorPrimary">@color/primary</item>
@@ -25,7 +25,7 @@
 
     </style>
 
-    <style name="PopupTheme" parent="android:ThemeOverlay.Material.Dark.ActionBar">
+    <style name="PopupTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:background">@color/primary</item>
         <item name="android:textColorPrimary">@color/white</item>
         <!--textColorPrimary is a theme attribute, it is not a style property

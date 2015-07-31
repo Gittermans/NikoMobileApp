@@ -2,18 +2,19 @@ package com.niko.hannes.nikomobileapp.ui.home;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toolbar;
 
 import com.niko.hannes.nikomobileapp.R;
 import com.niko.hannes.nikomobileapp.framework.Logger;
 
 
-public class Activity extends android.app.Activity implements MenuFragment.OnFragmentInteractionListener {
+public class HomeActivity extends AppCompatActivity implements MenuFragment.OnFragmentInteractionListener {
 
 
-    private Logger mLogger = new Logger(Activity.class.getSimpleName());
+    private Logger mLogger = new Logger(HomeActivity.class.getSimpleName());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +22,7 @@ public class Activity extends android.app.Activity implements MenuFragment.OnFra
         setContentView(R.layout.home_activity);
 
         Toolbar toolBar = (Toolbar) findViewById(R.id.toolbar_main);
-        setActionBar(toolBar);
+        setSupportActionBar(toolBar);
 
     }
 

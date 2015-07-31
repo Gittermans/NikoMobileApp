@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:elevation="4dp"
     android:layout_height="?android:attr/actionBarSize"
     android:layout_width="match_parent"
     android:background="?android:attr/colorPrimary"
     android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
-    android:popupTheme="@style/PopupTheme" android:title="@string/app_name" >
+    android:popupTheme="@style/PopupTheme"
+    app:layout_scrollFlags="scroll|enterAlways"
+    android:title="@string/app_name">
 
     <!--
     https://chris.banes.me/2014/11/12/theme-vs-style/
@@ -16,4 +19,4 @@
     Values in an attribute set can reference values from the View’s theme.
     TL;DR: Themes are global, styles are local.
     -->
-</android.widget.Toolbar>
+</android.support.v7.widget.Toolbar>
