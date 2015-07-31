@@ -1,4 +1,21 @@
 <android.support.v7.widget.RecyclerView android:id="@+id/home.menu.list"  android:layout_height="match_parent" android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android" android:paddingTop="8dp">
 
 </android.support.v7.widget.RecyclerView>
+<android.support.v4.widget.DrawerLayout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<FrameLayout
+android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<android.support.design.widget.FloatingActionButton
+    android:id="@+id/fabBtn"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|right"
+    android:src="@drawable/ic_plus"
+    app:fabSize="normal" />
+
+</FrameLayout>
+</android.support.v4.widget.DrawerLayout>

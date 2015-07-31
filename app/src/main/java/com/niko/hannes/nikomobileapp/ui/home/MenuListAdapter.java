@@ -5,8 +5,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import com.niko.hannes.nikomobileapp.R;
+import com.niko.hannes.nikomobileapp.framework.IListItemClickListener;
 import com.niko.hannes.nikomobileapp.model.Avatar;
 
 import java.util.List;
@@ -18,6 +20,7 @@ public class MenuListAdapter extends RecyclerView.Adapter<MenuItemVH> {
 
     List<MenuItemVM> mVms;
     private Context mContext;
+    private IListItemClickListener mItemClickListener;
 
     public MenuListAdapter(Context context, List<MenuItemVM> vms) {
 
@@ -33,7 +36,7 @@ public class MenuListAdapter extends RecyclerView.Adapter<MenuItemVH> {
 
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_1i2l, viewGroup, false);
 
-        return new MenuItemVH(view);
+        return new MenuItemVH(view, mItemClickListener);
     }
 
     @Override
@@ -45,11 +48,18 @@ public class MenuListAdapter extends RecyclerView.Adapter<MenuItemVH> {
 
         menuItemVH.title.setText(vmToBind.title);
         menuItemVH.description.setText(vmToBind.description);
-        menuItemVH.avatar.setImageDrawable(mContext.getDrawable(R.drawable.avatar_1));
+        menuItemVH.avatar.setImageDrawable(mContext.getDrawable(vmToBind.avatar.getDrawableId()));
     }
 
     @Override
     public int getItemCount() {
         return mVms.size();
+    }
+
+    public void setOnItemClickListener(final IListItemClickListener listener) {
+
+        if(listener == null) throw new IllegalArgumentException("listener can not be null.");
+
+        this.mItemClickListener = listener;
     }
 }
