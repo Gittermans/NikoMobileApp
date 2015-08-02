@@ -80,7 +80,6 @@ public class MenuFragment extends Fragment implements IListItemClickListener {
         //mlistView.setOnClickListener();
     }
 
-
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
