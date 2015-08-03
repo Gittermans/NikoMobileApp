@@ -1,6 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent" android:paddingEnd="16dp"
+    android:paddingStart="16dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title_sign_in"
+            style="@style/TextAppearance.Niko.Title"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:elevation="@dimen/elevation_header"
+            android:gravity="center_vertical"
+            android:text="@string/properties" />
+
+        <EditText
+            android:id="@+id/first_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/first_name"
+            android:imeOptions="actionNext"
+            android:inputType="textCapWords"
+            android:minHeight="?android:attr/actionBarSize"
+            android:paddingBottom="@dimen/spacing_normal"
+            android:paddingTop="@dimen/spacing_normal"
+            android:textSize="@dimen/size_edit_text" />
+
+        <EditText
+            android:id="@+id/profession"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/profession"
+            android:imeOptions="actionDone"
+            android:inputType="textNoSuggestions|textCapWords"
+            android:maxLength="1"
+            android:minHeight="?android:attr/actionBarSize"
+            android:paddingBottom="@dimen/spacing_normal"
+            android:paddingTop="@dimen/spacing_normal"
+            android:textSize="@dimen/size_edit_text" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/toolbar_choose_avatar"
+            style="@style/TextAppearance.Niko.Title"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:gravity="center_vertical"
+            android:text="@string/choose_avatar" />
+
+        <GridView
+            android:id="@+id/avatars"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:choiceMode="singleChoice"
+            android:cropToPadding="true"
+            android:listSelector="@android:color/transparent"
+            android:verticalSpacing="@dimen/spacing_double" />
+    </LinearLayout>
 
 </LinearLayout>

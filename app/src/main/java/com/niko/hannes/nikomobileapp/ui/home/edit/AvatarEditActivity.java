@@ -10,12 +10,19 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.niko.hannes.nikomobileapp.R;
+import com.niko.hannes.nikomobileapp.dataService.AvatarDataService;
+import com.niko.hannes.nikomobileapp.model.Avatar;
 import com.niko.hannes.nikomobileapp.ui.home.MenuItemVM;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AvatarEditActivity  extends AppCompatActivity {
 
     private static final String EXTRA_TITLE = "AvatarEditActivity.extraImage";
     private static final String EXTRA_AVATAR = "AvatarEditActivity.extraAvatar";
+    private GridView mAvatarGrid;
+    private Avatar mSelectedAvatar;
 
     public static void navigate(AppCompatActivity activity, MenuItemVM viewModel) {
         Intent intent = new Intent(activity, AvatarEditActivity.class);
@@ -43,17 +50,24 @@ public class AvatarEditActivity  extends AppCompatActivity {
     }
 
     private void setUpGridView() {
+
+
         mAvatarGrid = (GridView) findViewById(R.id.avatars);
-        mAvatarGrid.setAdapter(new AvatarAdapter(this));
+        mAvatarGrid.setAdapter(new AvatarAdapter(this, AvatarDataService.getInstance().get()));
         mAvatarGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mSelectedAvatarView = view;
                 mSelectedAvatar = Avatar.values()[position];
             }
         });
         mAvatarGrid.setNumColumns(calculateSpanCount());
         mAvatarGrid.setItemChecked(mSelectedAvatar.ordinal(), true);
+    }
+
+    private int calculateSpanCount() {
+        int avatarSize = getResources().getDimensionPixelSize(R.dimen.size_fab);
+        int avatarPadding = getResources().getDimensionPixelSize(R.dimen.spacing_double);
+        return mAvatarGrid.getWidth() / (avatarSize + avatarPadding);
     }
 
 

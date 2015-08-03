@@ -10,4 +10,10 @@
     <string name="downloaded">Downloaded</string>
     <string name="more">More</string>
     <string name="settings">Settings</string>
+    <string name="sign_in">Sign in</string>
+    <string name="first_name">First name</string>
+    <string name="last_initial">last initial</string>
+    <string name="choose_avatar">Choose avatar</string>
+    <string name="properties">Properties</string>
+    <string name="profession">Profession</string>
 </resources>

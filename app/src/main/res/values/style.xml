@@ -36,6 +36,10 @@
         <item name="android:foreground">@color/white</item>-->
     </style>
 
+    <style name="TextAppearance.Niko.Title" parent="android:TextAppearance.Material.Title">
+        <item name="android:textColor">@color/primary_dark</item>
+    </style>
+
 
 
 </resources>
