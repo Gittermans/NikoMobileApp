@@ -3,6 +3,5 @@
     android:id="@+id/avatar"
     android:layout_width="40dp"
     android:layout_height="40dp"
-    android:padding="16dp"
     android:layout_marginLeft="@dimen/spacing_double"
     xmlns:android="http://schemas.android.com/apk/res/android" />

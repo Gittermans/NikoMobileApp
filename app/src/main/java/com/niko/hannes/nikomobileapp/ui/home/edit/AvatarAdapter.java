@@ -44,13 +44,14 @@ public class AvatarAdapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+
         if(convertView == null)
             convertView = mLayoutInflater.inflate(R.layout.home_edit_avatar_grid_item,parent, false);
 
-        Avatar tobind = mList.get(position).avatar;
+        Avatar viewModel = mList.get(position).avatar;
 
         AvatarView av = (AvatarView) convertView.findViewById(R.id.avatar);
-        av.setImageResource(tobind.getDrawableId());
+        av.setImageResource(viewModel.getDrawableId());
         return convertView;
     }
 }

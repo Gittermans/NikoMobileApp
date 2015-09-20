@@ -8,12 +8,16 @@ import android.util.AttributeSet;
 import android.widget.Checkable;
 import android.widget.ImageView;
 
+import com.niko.hannes.nikomobileapp.R;
 import com.niko.hannes.nikomobileapp.framework.RoundOutlineProvider;
 
 /**
  * Created by Gebruiker on 28/07/2015.
  */
-public class AvatarView extends ImageView  {
+public class AvatarView extends ImageView implements Checkable
+{
+
+    private boolean mChecked;
 
     public AvatarView(Context context) {
         this(context, null);
@@ -28,11 +32,15 @@ public class AvatarView extends ImageView  {
         setClipToOutline(true);
     }
 
-
-
     @Override
     protected void onDraw(@NonNull Canvas canvas) {
+
         super.onDraw(canvas);
+        if(mChecked){
+            Drawable border = getResources().getDrawable(R.drawable.selector_avatar, null);
+            border.setBounds(0,0,getWidth(),getHeight());
+            border.draw(canvas);
+        }
     }
 
     @Override
@@ -43,5 +51,20 @@ public class AvatarView extends ImageView  {
         }
     }
 
+    @Override
+    public void setChecked(boolean checked) {
+        mChecked = checked;
+        invalidate();
+    }
+
+    @Override
+    public boolean isChecked() {
+        return mChecked;
+    }
+
+    @Override
+    public void toggle() {
+        setChecked(!mChecked);
+    }
 }
 

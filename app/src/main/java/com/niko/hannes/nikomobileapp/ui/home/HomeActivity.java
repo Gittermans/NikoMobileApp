@@ -18,6 +18,7 @@ import com.niko.hannes.nikomobileapp.R;
 import com.niko.hannes.nikomobileapp.framework.IListItemClickListener;
 import com.niko.hannes.nikomobileapp.framework.Logger;
 import com.niko.hannes.nikomobileapp.model.Avatar;
+import com.niko.hannes.nikomobileapp.ui.home.edit.AvatarEditActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,11 @@ public class HomeActivity extends AppCompatActivity implements IListItemClickLis
     private Logger mLogger = new Logger(HomeActivity.class.getSimpleName());
     private Toolbar mToolbar;
     private RecyclerView mlistView;
+    private final List<MenuItemVM> menuitems;
+
+    public HomeActivity() {
+        menuitems = new ArrayList<MenuItemVM>();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +75,10 @@ public class HomeActivity extends AppCompatActivity implements IListItemClickLis
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+
+            //mlistView.getAdapter().
+
+
             return true;
         }
 
@@ -78,7 +88,6 @@ public class HomeActivity extends AppCompatActivity implements IListItemClickLis
 
     private void bindListView() {
 
-        List<MenuItemVM> menuitems = new ArrayList<MenuItemVM>();
         menuitems.add(new MenuItemVM("Hannes", "Senior software developer", Avatar.ONE));
         menuitems.add(new MenuItemVM("Kenneth", "Senior software developer", Avatar.TWO));
         menuitems.add(new MenuItemVM("Bjorn", "Senior software developer", Avatar.THREE));
@@ -107,6 +116,9 @@ public class HomeActivity extends AppCompatActivity implements IListItemClickLis
     @Override
     public void onListItemClick(View v, int position) {
         Toast.makeText(this, "onListItemClick !: " + position, Toast.LENGTH_SHORT).show();
+
+        AvatarEditActivity.navigate(this, menuitems.get(position));
+
     }
 
 
